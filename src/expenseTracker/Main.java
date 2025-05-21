@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Main {
    public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);
-	TransactionManager manager = new TransactionManager();
 	
+	TransactionManager manager = new TransactionManager();
 	while(true) {
 		 System.out.println("\n--- Expense Tracker ---");
          System.out.println("choice 1. Add Transaction");
@@ -18,7 +18,7 @@ public class Main {
          System.out.print("Choose: ");
          int choice =sc.nextInt();
          sc.nextLine();
-         
+    	 String filepath = System.getProperty("user.dir")+"/src/expenseTracker/transactions.txt";
          switch(choice) {
          case 1:
         	 System.out.println("Enter type (Income/Expense) :");
@@ -32,14 +32,13 @@ public class Main {
         	 manager.addTransaction(new Transaction(type,date,amount,category));
         	 break;
          case 2:
-        	 System.out.println("Enter file path: ");
-        	 String filepath = sc.nextLine();
+        	 //System.out.println("Enter file path: ");
+        	 System.out.print(filepath);
         	 manager.loadFromFile(filepath);
         	 break;
          case 3:
         	 System.out.println("Enter filename to save: ");
-        	 String saveFile = sc.nextLine();
-        	 manager.saveToFile(saveFile);
+        	 manager.saveToFile(filepath);
         	 break;
          case 4:
         	 System.out.println("Enter year: ");
