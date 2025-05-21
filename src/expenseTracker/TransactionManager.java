@@ -11,11 +11,16 @@ public class TransactionManager {
    }
    
    public void loadFromFile(String fileName) {
+	   System.out.println("inside load from file");
+	    transactions.clear(); 
 	   transactions.addAll(HandleFile.readTransactionFromFile(fileName));
+	   	
+
    }
    
    public void saveToFile(String fileName) {
 	   HandleFile.writeTransactionsToFile(transactions , fileName);
+	   System.out.println("saved to the file .........");
    }
    
    public void printMonthlySummary(int year, int month) {
@@ -34,5 +39,6 @@ public class TransactionManager {
 	   System.out.println("Total Income : "+ totalIncome);
 	   System.out.println("Total Expense : "+ totalExpense);
 	   System.out.println("Total Remaining : "+(totalIncome-totalExpense));
+	   
    }
 }
